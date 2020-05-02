@@ -7,6 +7,7 @@ import { StorageService } from './storage.service';
 })
 export class ServiceService {
 
+  listProduct: any;
   private API_URL: string = 'https://endamo-api.herokuapp.com'
   private API_URL2: string = 'http://localhost:3000'
 
@@ -164,6 +165,23 @@ export class ServiceService {
       })
     });
     return promise;
+  }
+
+  editProduct(arg0: any): any {
+    throw new Error("Method not implemented.");
+  }
+
+  existProduct(): any {
+    this.listProduct.product = this.http.get(`${this.API_URL}/producto/listado`);
+    console.log(this.listProduct);
+  }
+
+  filterProduct(arg0: any): any {
+  
+  }
+  
+  deleteProduct(arg0: any): any {
+    
   }
 
   obtenerProductos() {

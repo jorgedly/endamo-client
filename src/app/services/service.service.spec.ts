@@ -95,3 +95,53 @@ describe('Servicio sesiones: Registro', () => {
   });
 
 });
+
+describe('Servicio sesiones: crudProductos', () => {
+
+  let injector: TestBed;
+  let service: ServiceService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [ServiceService]
+    });
+    injector = getTestBed();
+    service = injector.get(ServiceService);
+  });
+
+  it('validar agregar Producto', async function () {
+    expect(service.addProduct("Apple iPad (2019)",2130.28, 1).toBe(true);
+  });
+
+  it('validar modificar Producto', async function () {
+    const signInData = {
+      nombre: ';select * from user;',
+      email: 'jorge@gmail.com',
+      username: 'jorgedly',
+      password: '123#45678',
+      avatar: '/assets/avatars/av-1.png'
+    };
+    expect(service.editProduct(signInData)).toBe(true);
+  });
+
+  it('validar eliminar Producto', async function () {
+    const signInData = {
+      username: 'jorgedly',
+      password: '123#45678'
+    };
+    expect(service.deleteProduct(signInData)).toBe(false);
+  });
+
+  it('validar filtrar Producto', async function () {
+    const signInData = {
+      username: 'jorgedly',
+      password: '123#45678'
+    };
+    expect(service.filterProduct(signInData)).toBe(false);
+  });
+
+  it('validar ver los Producto ', async function () {
+    expect(service.existProduct()).toBe(false);
+  });
+});

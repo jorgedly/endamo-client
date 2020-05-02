@@ -38,12 +38,15 @@ const routes: Routes = [
   {
     path: 'producto/editar/:id',
     loadChildren: () => import('./pages/create-product/create-product.module').then(m => m.CreateProductPageModule)
-  },  {
+  },
+  {
     path: 'cart',
     loadChildren: () => import('./pages/cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./pages/checkout/checkout.module').then( m => m.CheckoutPageModule)
   }
-
-
 ];
 
 @NgModule({
@@ -52,4 +55,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
