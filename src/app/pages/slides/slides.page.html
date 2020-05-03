@@ -1,6 +1,6 @@
 <ion-content>
   
-  <ion-slides pager="true" class="slide-full">
+  <ion-slides id="slides" pager="true" class="slide-full">
 
     <ion-slide *ngFor="let slide of slides">  
 
@@ -68,7 +68,7 @@
         </ion-row>
 
         <ion-row justify-content-center>
-          <ion-button expand="block"
+          <ion-button id="iniciarsesion" expand="block"
                       (click)="iniciar_sesion()">
             Inicia Sesión
           </ion-button>

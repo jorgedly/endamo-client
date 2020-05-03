@@ -27,3 +27,33 @@ import { Papa } from 'ngx-papaparse';
 //     expect(component).toBeTruthy();
 //   });
 // });
+describe('CargamasivaPage', () => {
+  let component: CargamasivaPage;
+  let fixture: ComponentFixture<CargamasivaPage>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+      declarations: [ CargamasivaPage ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [ServiceService, FileChooser, FilePath, Papa]
+    }).compileComponents();
+
+
+    fixture = TestBed.createComponent(CargamasivaPage);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe('Test for select file', () =>  {
+    it('should get the uri of the file', () => {
+      
+    });
+  });
+
+});
+

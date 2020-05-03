@@ -36,7 +36,6 @@ export class CartPage implements OnInit {
     });
   }
 
-
   makePurchase() {
     console.log("entro")
     this.route.navigate(['/checkout']);

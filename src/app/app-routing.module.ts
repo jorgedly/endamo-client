@@ -25,15 +25,15 @@ const routes: Routes = [
   },
   {
     path: 'cargamasiva',
-    loadChildren: () => import('./pages/cargamasiva/cargamasiva.module').then( m => m.CargamasivaPageModule)
+    loadChildren: () => import('./pages/cargamasiva/cargamasiva.module').then(m => m.CargamasivaPageModule)
   },
   {
     path: 'modificar-usuario',
-    loadChildren: () => import('./pages/modificar-usuario/modificar-usuario.module').then( m => m.ModificarUsuarioPageModule)
+    loadChildren: () => import('./pages/modificar-usuario/modificar-usuario.module').then(m => m.ModificarUsuarioPageModule)
   },
   {
     path: 'menu2',
-    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
+    loadChildren: () => import('./pages/menu/menu.module').then(m => m.MenuPageModule)
   },
   {
     path: 'producto/editar/:id',
@@ -41,11 +41,21 @@ const routes: Routes = [
   },
   {
     path: 'cart',
-    loadChildren: () => import('./pages/cart/cart.module').then( m => m.CartPageModule)
+    loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartPageModule)
   },
   {
     path: 'checkout',
-    loadChildren: () => import('./pages/checkout/checkout.module').then( m => m.CheckoutPageModule)
+    loadChildren: () => import('./pages/checkout/checkout.module').then(m => m.CheckoutPageModule)
+  },
+  {
+    path: 'report',
+    pathMatch: 'full',
+    loadChildren: () => import('./pages/reportes/reportes.module').then(m => m.ReportesPageModule)
+  },
+  {
+    path: 'promo',
+    pathMatch: 'full',
+    loadChildren: () => import('./pages/promocion/promocion.module').then(m => m.PromocionPageModule)
   }
 ];
 

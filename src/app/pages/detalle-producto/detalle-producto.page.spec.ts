@@ -3,9 +3,16 @@ import { IonicModule } from '@ionic/angular';
 
 import { DetalleProductoPage } from './detalle-producto.page';
 
+<<<<<<< HEAD
 // describe('DetalleProductoPage', () => {
 //   let component: DetalleProductoPage;
 //   let fixture: ComponentFixture<DetalleProductoPage>;
+=======
+/*
+describe('DetalleProductoPage', () => {
+  let component: DetalleProductoPage;
+  let fixture: ComponentFixture<DetalleProductoPage>;
+>>>>>>> cambios
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
@@ -18,7 +25,15 @@ import { DetalleProductoPage } from './detalle-producto.page';
 //     fixture.detectChanges();
 //   }));
 
+<<<<<<< HEAD
 //   it('should create', () => {
 //     expect(component).toBeTruthy();
 //   });
 // });
+=======
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+*/
+>>>>>>> cambios

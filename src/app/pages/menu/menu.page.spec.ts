@@ -3,9 +3,16 @@ import { IonicModule } from '@ionic/angular';
 
 import { MenuPage } from './menu.page';
 
+<<<<<<< HEAD
 // describe('MenuPage', () => {
 //   let component: MenuPage;
 //   let fixture: ComponentFixture<MenuPage>;
+=======
+/*
+describe('MenuPage', () => {
+  let component: MenuPage;
+  let fixture: ComponentFixture<MenuPage>;
+>>>>>>> cambios
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
@@ -18,7 +25,15 @@ import { MenuPage } from './menu.page';
 //     fixture.detectChanges();
 //   }));
 
+<<<<<<< HEAD
 //   it('should create', () => {
 //     expect(component).toBeTruthy();
 //   });
 // });
+=======
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+*/
+>>>>>>> cambios
