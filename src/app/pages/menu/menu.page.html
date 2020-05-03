@@ -10,8 +10,10 @@
         <ion-list>
           <ion-item (click)="changePage(p.url)">
             <ion-icon *ngIf="i==0"name="home" slot="start"></ion-icon>
-            <ion-icon *ngIf="i==1"name="person" slot="start"></ion-icon>
-            <ion-icon *ngIf="i==2"name="log-out" slot="start"></ion-icon>
+            <ion-icon *ngIf="i==1"name="access_time" slot="start"></ion-icon>
+            <ion-icon *ngIf="i==2"name="find_in_page" slot="start"></ion-icon>
+            <ion-icon *ngIf="i==3"name="person" slot="start"></ion-icon>
+            <ion-icon *ngIf="i==4"name="log-out" slot="start"></ion-icon>
             {{p.name}}
           </ion-item>
         </ion-list>

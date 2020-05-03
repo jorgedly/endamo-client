@@ -15,6 +15,14 @@ export class MenuPage implements OnInit {
       url: 'menu2/menu/lista_productos'
     },
     {
+      name: 'Promociones',
+      url: 'promo'
+    },
+    {
+      name: 'Reportes',
+      url: 'report'
+    },
+    {
       name: 'Edit profile',
       url: 'menu2/menu/edit-enterprise'
     },
@@ -40,6 +48,10 @@ export class MenuPage implements OnInit {
     if(page === 'logout'){
       localStorage.clear();
       this.router.navigate([`registro/2`]);
+    }else if(page === 'Reportes'){
+      this.router.navigate([`report`]);
+    }else if(page === 'Promociones'){
+      this.router.navigate([`promo`]);
     }else{
       this.router.navigate([page]);
     }

@@ -38,12 +38,21 @@ const routes: Routes = [
   {
     path: 'producto/editar/:id',
     loadChildren: () => import('./pages/create-product/create-product.module').then(m => m.CreateProductPageModule)
-  },  {
+  },
+  {
     path: 'cart',
     loadChildren: () => import('./pages/cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'report',
+    pathMatch: 'full',
+    loadChildren: () => import('./pages/reportes/reportes.module').then( m => m.ReportesPageModule)
+  },
+  {
+    path: 'promo',
+    pathMatch: 'full',
+    loadChildren: () => import('./pages/promocion/promocion.module').then( m => m.PromocionPageModule)
   }
-
-
 ];
 
 @NgModule({
