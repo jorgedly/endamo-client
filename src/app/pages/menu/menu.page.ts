@@ -16,11 +16,11 @@ export class MenuPage implements OnInit {
     },
     {
       name: 'Promociones',
-      url: 'promo'
+      url: 'menu2/menu/promo'
     },
     {
       name: 'Reportes',
-      url: 'report'
+      url: 'menu2/menu/report'
     },
     {
       name: 'Edit profile',

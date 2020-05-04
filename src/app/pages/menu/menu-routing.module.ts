@@ -15,6 +15,14 @@ const routes: Routes = [
       {
         path: 'edit-enterprise',
         loadChildren: () => import('../edit-enterprise/edit-enterprise.module').then( m => m.EditEnterprisePageModule)
+      },
+      {
+        path: 'report',
+        loadChildren: () => import('../reportes/reportes.module').then( m => m.ReportesPageModule)
+      },
+      {
+        path: 'promo',
+        loadChildren: () => import('../promocion/promocion.module').then( m => m.PromocionPageModule)
       }
     ]
   },

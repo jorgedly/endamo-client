@@ -17,7 +17,6 @@ export class ServiceService {
     private storageService: StorageService) { }
 
   //agregar metodos de verificacion de datos de registro y login
-
   verificarLogin(data) {
     return true;
   }
@@ -33,6 +32,8 @@ export class ServiceService {
           if (resp["auth"]) {
             //si los datos son correctos, se guarda la informacion en el local storage
             localStorage.setItem('correo', JSON.stringify(data.email))
+            console.log(data.email);
+            console.log(localStorage.getItem('correo'));
             resolve(resp);
           }
           else {

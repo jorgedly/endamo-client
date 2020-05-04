@@ -11,10 +11,10 @@
 <br>
 <br>
 <br>
-<ion-label>Producto más vendido</ion-label>
+<ion-label>Producto Top más vendido</ion-label>
 <ion-content>
     <ion-list>
-        <ion-item-sliding *ngFor="let proMV of producto">
+        <ion-item-sliding *ngFor="let proMV of reporteMV">
             <ion-item>
                 <ion-label>
                     <h2>Producto: {{proMV.id_producto}}</h2>
@@ -26,10 +26,10 @@
     </ion-list>
 </ion-content>
 
-<ion-label>Producto menos vendido</ion-label>
+<ion-label>Producto Top menos vendido</ion-label>
 <ion-content>
     <ion-list>
-        <ion-item-sliding *ngFor="let proV of producto">
+        <ion-item-sliding *ngFor="let proV of reporteV">
             <ion-item>
                 <ion-label>
                     <h2>Producto: {{proV.id_producto}}</h2>

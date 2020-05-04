@@ -12,23 +12,8 @@ import { PromocionService } from '../../services/promocion.service';
 export class PromocionPage implements OnInit {
 
   id_empresa: any;
+  id_promocion: any;
   promociones: any = [];
-  /*promocion = [
-    {
-        "pelicula": "Batman v. Superman",
-        "director": "Zack Snider",
-        "anio": "2016"
-    },
-    {
-        "pelicula": "La verdad duele",
-        "director": "Will Smith",
-        "anio": "2015"
-    },
-    {
-        "pelicula": "Una historia real",
-        "director": "Desconocido",
-        "anio": "2014"
-    }];*/
 
   constructor(private crud: PromocionService,
     public toastController: ToastController,
@@ -60,38 +45,12 @@ export class PromocionPage implements OnInit {
         return false;
       });
   }
-  /*
-  getProductos() {
-    this.crud.listarProducto().then(productos => {
-      this.productos = productos;
-    });
+
+  addPromocion() {
+    this.crud.addPromocion(1,2,this.id_promocion).then( resp => {
+      console.log(resp);
+      this.getPromocion();
+    })
   }
   
-/*
-  deleteProducto(id: string) {
-
-    this.crud.deleteProducto(id)
-      .subscribe(
-        res => {
-          this.getProductos();
-        },
-        err => this.presentToast("Error al eliminar el producto")
-      )
-  }
-
-  addProduct() {
-    this.router.navigate(['/create-product']);
-  }
-  */
-  /*
-  addPromocion(id_promocion: number, ActivoNoActivo: number, id_empresa: number, id_producto: number) {
-      this.crud.agregarPromocion(id_promocion, ActivoNoActivo, id_empresa, id_producto).subscribe()
-
-      }
-  }
-
-  deletePromocion() {
-
-  }
-*/
 }

@@ -2,16 +2,20 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IonSlides, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ReporteService } from '../../reporte/reporte.service';
+import { ReportesService } from '../../services/reportes.service';
+import { StorageService } from '../../services/storage.service';
+
 @Component({
   selector: 'app-reportes',
   templateUrl: './reportes.page.html',
   styleUrls: ['./reportes.page.scss'],
 })
 export class ReportesPage implements OnInit {
-
+  nuevo: string;
   id_empresa: any;
-  promociones: any = [];
+  reporteMV: any = [];
+  reporteV: any = [];
+  valor: any;
   /*promocion = [
     {
         "pelicula": "Batman v. Superman",
@@ -29,15 +33,18 @@ export class ReportesPage implements OnInit {
         "anio": "2014"
     }];*/
 
-  constructor(private crud: PromocionService,
+  constructor(private crud: ReportesService,
     public toastController: ToastController,
-    private router: Router) {
+    private router: Router,
+    private storageService: StorageService) {
   }
 
   ngOnInit() {
-    this.getPromocion();
+    console.log(this.storageService.getCorreo());
+    this.getReporteTop3MasVendidos();
+    this.getReporteTop3MenosVendidos();
   }
-  
+
   async presentToast(mensaje) {
     const toast = await this.toastController.create({
       message: mensaje,
@@ -48,11 +55,11 @@ export class ReportesPage implements OnInit {
     toast.present();
   }
 
-  getPromocion(): any {
-    this.crud.getPromocion().then(promo => {
-      this.promociones = promo;
-      console.log(this.promociones);
-      console.log(promo);
+  getReporteTop3MasVendidos(): any {
+    this.crud.getReporteMas().then(reportemas => {
+      this.reporteMV = reportemas;
+      console.log("aqui iria +"+this.reporteMV);
+      console.log(reportemas);
     },
       err => {
         console.log(err);
@@ -60,4 +67,15 @@ export class ReportesPage implements OnInit {
       });
   }
 
+  getReporteTop3MenosVendidos(): any {
+    this.crud.getReporteMenos().then(reportemenos => {
+      this.reporteV = reportemenos;
+      console.log("aqui iria -"+ this.reporteV);
+      console.log(reportemenos);
+    },
+      err => {
+        console.log(err);
+        return false;
+      });
+  }
 }
