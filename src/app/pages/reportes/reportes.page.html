@@ -1,1 +1,42 @@
-<ion-label>Funciona reportes</ion-label>
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-menu-button auto-hide=false>
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title>Home Empresa</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<br>
+<br>
+<br>
+<ion-label>Producto más vendido</ion-label>
+<ion-content>
+    <ion-list>
+        <ion-item-sliding *ngFor="let proMV of producto">
+            <ion-item>
+                <ion-label>
+                    <h2>Producto: {{proMV.id_producto}}</h2>
+                    <h3>Empresa: {{proMV.id_empresa}}</h3>
+                    <h3>Descripcion: {{proMV.id_descripcion}}</h3>
+                </ion-label>
+            </ion-item>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>
+
+<ion-label>Producto menos vendido</ion-label>
+<ion-content>
+    <ion-list>
+        <ion-item-sliding *ngFor="let proV of producto">
+            <ion-item>
+                <ion-label>
+                    <h2>Producto: {{proV.id_producto}}</h2>
+                    <h3>Empresa: {{proV.id_empresa}}</h3>
+                    <h3>Descripcion: {{proV.id_descripcion}}</h3>
+                </ion-label>
+            </ion-item>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>
