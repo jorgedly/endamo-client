@@ -10,22 +10,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item-sliding *ngFor="let product of cart">
-      <ion-item>
-        <ion-label>
-          <h3>{{product['producto'].nombre}}</h3>
-          <p>Precio: {{product['producto'].precio}}</p>
-          <p>Cantidad: {{product['cantidad']}}</p>
-        </ion-label>
-        <ion-button expand="block" (click)="removeFromCart(product)">Eliminar</ion-button>
-      </ion-item>
-    </ion-item-sliding>
+<ion-list>
+  <ion-item-sliding *ngFor = "let product of cart">
     <ion-item>
       <ion-label>
-        <p>Subcantidad: {{subTotal}} </p>
+        <h3>{{product['producto'].nombre}}</h3>
+        <p>Precio: {{product['producto'].precio}}</p>
+        <p>Cantidad: {{product['cantidad']}}</p>
       </ion-label>
     </ion-item>
-  </ion-list>
-  <ion-button expand="block" (click)="abrirSegundaPag()">>Realizar Compra</ion-button>
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="removeFromCart(product)"><ion-icon name="trash"></ion-icon></ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+<ion-button expand="block">Realizar Compra</ion-button>
 </ion-content>
