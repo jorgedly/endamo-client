@@ -14,9 +14,9 @@ export class PromocionService {
   getPromocion = () => {
     let promise = new Promise(resolve => {
       this.http.get(`${this.url}/promocion`)
-      .subscribe(resp => {
-        resolve(resp);
-      });
+        .subscribe(resp => {
+          resolve(resp);
+        });
     });
     return promise;
   };
@@ -25,15 +25,16 @@ export class PromocionService {
     let promise = new Promise(resolve => {
       this.http.get(`${this.url}/getidempresa/${this.storageService.getCorreo()}`)
         .subscribe(resp => {
-          resolve(resp["idEmpresa"]);
+          resolve(resp["id_empresa"]);
         });
     });
     return promise;
   };
 
-  addPromocion = (ActivoNoActivo: number, id_empresa: number, id_producto: number) => {
+  addPromocion = (ActivoNoActivo: number, id_producto: number) => {
     let promise = new Promise(resolve => {
-      this.getId().then(id => {
+      this.getId().then(idEmpresa => {
+        let id_empresa = idEmpresa;
         const data = { ActivoNoActivo, id_empresa, id_producto }
         console.log(data);
         this.addPostPromocion(data).then(resp => {
@@ -44,7 +45,7 @@ export class PromocionService {
     });
     return promise;
   }
-  
+
   addPostPromocion = (data) => {
     return new Promise(resolve => {
       this.http.post(`${this.url}/ingresarPromocion`, data)
@@ -55,9 +56,19 @@ export class PromocionService {
     });
   };
 
+  deletePromocion = (id_producto: number) => {
+    console.log(id_producto);
+    let id = id_producto;
+    return new Promise(resolve => {
+      this.deletePostPromocion(id).then(resp => {
+        console.log(resp);
+      });
+    });
+  }
+
   deletePostPromocion = (data) => {
     return new Promise(resolve => {
-      this.http.post(`${this.url}/ingresarPromocion`, data)
+      this.http.delete(`${this.url}/eliminarPromocion/${data}`)
         .subscribe(resp => {
           console.log(resp);
           resolve(resp);
@@ -65,8 +76,8 @@ export class PromocionService {
     });
   }
 
-  updateData(enterprise){
-    return this.http.put(`${this.url}/empresa/update`,enterprise)
+  updateData(enterprise) {
+    return this.http.put(`${this.url}/empresa/update`, enterprise)
   }
 
 }
