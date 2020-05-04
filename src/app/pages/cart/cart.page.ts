@@ -112,6 +112,7 @@ export class CartPage implements OnInit {
         }, {
           text: 'Okay',
           handler: data => {
+            this.realizarTransaccion(data.NIT,data.Nombre);
           }
         }
       ]
@@ -120,6 +121,23 @@ export class CartPage implements OnInit {
     await alert.present();
   }
 
+  async realizarTransaccion(NIT,nombre){
+    const data = await this.facturaService.crearFactura(new Date().toLocaleString(),this.id_usuario,this.total,NIT,nombre);
+    console.log(data);
 
+    if(data["creado"]!=0){
+      console.log('fue creado');
+        this.cart.forEach(elemento => {
+          this.realizarDetalleFactura(data,elemento);
+        });
+    }
+
+    this.presentMessage('Se ha realizado la compra de forma exitosa');
+  }
+
+  async realizarDetalleFactura(data,elemento){
+    const t = await this.facturaService.crearDetalleFactura(data["creado"],elemento['producto'].id_producto,elemento.cantidad);
+    console.log(t);
+  }
 
 }
