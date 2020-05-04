@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { CartserviceService } from 'src/app/services/cartservice.service';
-<<<<<<< HEAD
 import { Router, RouterEvent } from '@angular/router';
-=======
 import { element } from 'protractor';
 import { AlertController } from '@ionic/angular';
 import { FacturacionService } from 'src/app/services/facturacion.service';
 import { ServiceService } from 'src/app/services/service.service';
->>>>>>> f5775fae80f4b6b3fb5e9a5949ca81fcdaee7768
 
 @Component({
   selector: 'app-cart',
@@ -17,38 +14,37 @@ import { ServiceService } from 'src/app/services/service.service';
 })
 export class CartPage implements OnInit {
 
-  cart=[];
+  cart = [];
   total: number = 0;
   email;
   id_usuario;
 
-  constructor(private modalController:ModalController,
-    private cartservice:CartserviceService,
-    private toastController:ToastController,
-<<<<<<< HEAD
-    private router: Router) { 
-      if(this.cartservice.isNotEmpty())this.cart=this.cartservice.getProducts();
-=======
+  constructor(private modalController: ModalController,
+    private cartservice: CartserviceService,
+    private toastController: ToastController,
+    private router: Router,
+
+
     public alertController: AlertController,
-    public facturaService: FacturacionService) { 
-      if(this.cartservice.isNotEmpty()){
-        this.cart=this.cartservice.getProducts();
-        
-        console.log(this.cart);
-        this.cart.forEach(elemento => {
-          this.total = this.total+ elemento['producto'].precio*elemento.cantidad;
-        });
-      }
->>>>>>> f5775fae80f4b6b3fb5e9a5949ca81fcdaee7768
+    public facturaService: FacturacionService) {
+    if (this.cartservice.isNotEmpty()) this.cart = this.cartservice.getProducts();
+    if (this.cartservice.isNotEmpty()) {
+      this.cart = this.cartservice.getProducts();
+
+      console.log(this.cart);
+      this.cart.forEach(elemento => {
+        this.total = this.total + elemento['producto'].precio * elemento.cantidad;
+      });
     }
+  }
 
   ngOnInit() {
     this.getId();
   }
 
-  async getId(){
+  async getId() {
     this.email = localStorage.getItem('correo');
-    this.email = this.email.substr(1,this.email.length-2);
+    this.email = this.email.substr(1, this.email.length - 2);
     const data = await this.facturaService.getIdUser(this.email);
     console.log(data);
     this.id_usuario = data[0].id_usuario;
@@ -56,28 +52,28 @@ export class CartPage implements OnInit {
   }
 
   dismiss() {
-    this.cart=[];
+    this.cart = [];
     this.modalController.dismiss({
       'dismissed': true
     });
   }
 
-  removeFromCart(product){
-    let i:number;
+  removeFromCart(product) {
+    let i: number;
     // this.cart.find((value,index) =>{
     //   if(value==product) {
     //     i=index;
     //   }
     // });
-    this.cart.find((value,index) =>{
-      if(value==product) {
-        i=index;
+    this.cart.find((value, index) => {
+      if (value == product) {
+        i = index;
         return true;
       }
     });
-    this.cart.splice(i,1);
+    this.cart.splice(i, 1);
     this.cartservice.setProducts(this.cart);
-    this.presentMessage(product['producto'].nombre+" removido del carrito");
+    this.presentMessage(product['producto'].nombre + " removido del carrito");
   }
 
   async presentMessage(message_) {
@@ -90,12 +86,12 @@ export class CartPage implements OnInit {
     toast.present();
   }
 
-<<<<<<< HEAD
-  aDomiciolio(){
+  aDomiciolio() {
     console.log('hola mundo')
-    this.router.navigate([`modificar-usuario`]);
-=======
-  comprar(){
+    this.router.navigate([`a-domicilio`]);
+
+  }
+  comprar() {
     this.presentAlertConfirm();
   }
 
@@ -124,9 +120,10 @@ export class CartPage implements OnInit {
             console.log('Confirm Cancel: blah');
           }
         }, {
-          text: 'Okay',
+          text: 'Next',
           handler: data => {
-            this.realizarTransaccion(data.NIT,data.Nombre);
+            //this.realizarTransaccion(data.NIT, data.Nombre);
+            this.presentAlertADomicilio(data.NIT, data.Nombre);
           }
         }
       ]
@@ -135,15 +132,60 @@ export class CartPage implements OnInit {
     await alert.present();
   }
 
-  async realizarTransaccion(NIT,nombre){
-    const data = await this.facturaService.crearFactura(new Date().toLocaleString(),this.id_usuario,this.total,NIT,nombre);
+  
+  async presentAlertADomicilio(nit: any, nombre: any) {
+    const alert = await this.alertController.create({
+      header: 'Datos para la Entrega',
+      message: '<strong>Quiero recibirlo en mi casa!</strong>',
+      inputs: [
+        {
+          name: 'pais',
+          type: 'text',
+          placeholder: 'Guatemala'
+        },
+        {
+          name: 'depMun',
+          type: 'text',
+          placeholder: 'Chimaltenango, Tecpán Guatemala'
+        }
+        ,
+        {
+          name: 'dCasa',
+          type: 'text',
+          placeholder: '5ta Calle B 4-49'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: data => {
+            this.realizarTransaccion(nit, nombre);
+            this.realizarADomicilio(this.id_usuario, data.pais, data.depMun, data.dCasa);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async realizarTransaccion(NIT, nombre) {
+    const data = await this.facturaService.crearFactura(new Date().toLocaleString(), this.id_usuario, this.total, NIT, nombre);
     console.log(data);
 
-    if(data["creado"]!=0){
+    if (data["creado"] != 0) {
       console.log('fue creado');
-        this.cart.forEach(elemento => {
-          this.realizarDetalleFactura(data,elemento);
-        });
+      this.cart.forEach(elemento => {
+        this.realizarDetalleFactura(data, elemento);
+       
+      });
     }
 
     this.presentMessage('Se ha realizado la compra de forma exitosa');
@@ -151,10 +193,13 @@ export class CartPage implements OnInit {
     this.dismiss();
   }
 
-  async realizarDetalleFactura(data,elemento){
-    const t = await this.facturaService.crearDetalleFactura(data["creado"],elemento['producto'].id_producto,elemento.cantidad);
+  async realizarDetalleFactura(data, elemento) {
+    const t = await this.facturaService.crearDetalleFactura(data["creado"], elemento['producto'].id_producto, elemento.cantidad);
     console.log(t);
->>>>>>> f5775fae80f4b6b3fb5e9a5949ca81fcdaee7768
+  }
+
+  async realizarADomicilio(idUsuario, pais, dep, casa){
+    const data = await this.facturaService.crearADomicilio(idUsuario, pais, dep, casa);
   }
 
 }

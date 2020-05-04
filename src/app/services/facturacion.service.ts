@@ -42,4 +42,14 @@ export class FacturacionService {
     });
   }
 
+  crearADomicilio(usuario_id_usuario, avenida, zona, numero_casa){
+    const data = { avenida, zona, numero_casa, usuario_id_usuario }
+    return new Promise(resolve => {
+      this.http.post(`${this.API_URL2}/enviar/domiciliio`, data)
+      .subscribe(resp => {
+        resolve(resp);
+      });
+    });
+  }
+
 }

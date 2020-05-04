@@ -10,35 +10,6 @@
 </ion-header>
 
 <ion-content>
-<<<<<<< HEAD
-  <ion-list>
-    <ion-item-sliding *ngFor="let product of cart">
-      <ion-item>
-        <ion-label>
-          <h3>{{product['producto'].nombre}}</h3>
-          <p>Precio: {{product['producto'].precio}}</p>
-          <p>Cantidad: {{product['cantidad']}}</p>
-        </ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option color="danger" (click)="removeFromCart(product)">
-          <ion-icon name="trash"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <ion-button expand="block">Realizar Compra</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button color="secondary" (click)="dismiss()" [routerLink]="['/a-domicilio']">Envialo a <ion-icon name="home"></ion-icon></ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
-=======
 <ion-list>
   <ion-item-sliding *ngFor = "let product of cart">
     <ion-item>
@@ -61,6 +32,14 @@
   </ion-item>
 
 </ion-list>
-<ion-button expand="block" (click)="comprar()">Realizar Compra</ion-button>
+<ion-grid>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button expand="block" (click)="comprar()">Realizar Compra</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button color="secondary" (click)="dismiss()" [routerLink]="['/a-domicilio']">Envialo a <ion-icon name="home"></ion-icon></ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>
->>>>>>> f5775fae80f4b6b3fb5e9a5949ca81fcdaee7768
