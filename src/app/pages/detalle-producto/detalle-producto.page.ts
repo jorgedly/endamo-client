@@ -13,7 +13,8 @@ export class DetalleProductoPage implements OnInit {
   producto: Producto;
   cantidad: number = 1;
 
-  constructor(private modalController: ModalController, private cartservice:CartserviceService, private toastController:ToastController) { }
+  constructor(private modalController: ModalController, private cartservice:CartserviceService, private toastController:ToastController) {
+   }
 
   ngOnInit() {
   }
@@ -51,5 +52,4 @@ export class DetalleProductoPage implements OnInit {
     this.presentMessage(this.cantidad+" "+this.producto.nombre+" en el carrito");
     this.dismiss();
   }
-
 }

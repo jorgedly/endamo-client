@@ -4,6 +4,7 @@ import { IonSlides, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReportesService } from '../../services/reportes.service';
 import { StorageService } from '../../services/storage.service';
+import { ServiceService } from 'src/app/services/service.service';
 
 @Component({
   selector: 'app-reportes',

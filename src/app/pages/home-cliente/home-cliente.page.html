@@ -10,34 +10,41 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size-xs="12" size-sm="6" size-md="6" size-lg="4"
-        size-xl="3">
+      <ion-col size-xs="12" size-sm="6" size-md="6" size-lg="4" size-xl="3">
         <ion-select placeholder="Seleccionar filtro" [interfaceOptions]="customPopoverOptions" interface="popover" (ionChange)="select($event)">
           <ion-select-option value="precio">Precio</ion-select-option>
           <ion-select-option value="nombre">Nombre</ion-select-option>
         </ion-select>
       </ion-col>
-      <ion-col size-xs="12" size-sm="6" size-md="6" size-lg="4"
-        size-xl="3">
+      <ion-col size-xs="12" size-sm="6" size-md="6" size-lg="4" size-xl="3">
         <ion-searchbar type="{{searchbartype}}" [animated]="true" placeholder="{{product_filter}}" (ionChange)="search($event)" disabled="{{isOptionSelected}}"></ion-searchbar>
       </ion-col>
     </ion-row>
     <ion-row *ngIf="searchbartype=='text'">
-      <ion-col *ngFor="let producto of productos | productname:searchTerm" size-xs="12" size-sm="6" size-md="6" size-lg="4"
-        size-xl="3">
+      <ion-col *ngFor="let producto of productos | productname:searchTerm" size-xs="12" size-sm="6" size-md="6" size-lg="4" size-xl="3">
         <ion-card (click)="ver(producto.id_producto)" class="ion-activatable ripple-parent" button=true class="tarjetaHome">
-          <ion-img [src]="producto.imagen" class="imagenHome"></ion-img>
-          <ion-card-header>
-            <ion-card-title>{{producto.nombre}}</ion-card-title>
-            <ion-card-subtitle>Q. {{producto.precio}}</ion-card-subtitle>
-          </ion-card-header>
-          <!-- <ion-ripple-effect></ion-ripple-effect> -->
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div>
+                  <ion-img [src]="producto.imagen" class="imagenHome"></ion-img>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div>
+                  <ion-card-header>
+                    <ion-card-title>{{producto.nombre}}</ion-card-title>
+                    <ion-card-subtitle>Q. {{producto.precio}}</ion-card-subtitle>
+                  </ion-card-header>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </ion-card>
       </ion-col>
     </ion-row>
     <ion-row *ngIf="searchbartype!='text'">
-      <ion-col *ngFor="let producto of productos | productprice:searchTerm" size-xs="12" size-sm="6" size-md="6" size-lg="4"
-        size-xl="3">
+      <ion-col *ngFor="let producto of productos | productprice:searchTerm" size-xs="12" size-sm="6" size-md="6" size-lg="4" size-xl="3">
         <ion-card (click)="ver(producto.id_producto)" class="ion-activatable ripple-parent" button=true class="tarjetaHome">
           <ion-img [src]="producto.imagen" class="imagenHome"></ion-img>
           <ion-card-header>

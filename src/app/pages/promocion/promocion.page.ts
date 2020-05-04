@@ -4,6 +4,7 @@ import { IonSlides, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from 'src/app/services/service.service';
 import { PromocionService } from '../../services/promocion.service';
+
 @Component({
   selector: 'app-promocion',
   templateUrl: './promocion.page.html',
@@ -24,7 +25,7 @@ export class PromocionPage implements OnInit {
   ngOnInit() {
     this.getPromocion();
   }
-  
+
   async presentToast(mensaje) {
     const toast = await this.toastController.create({
       message: mensaje,
@@ -49,12 +50,12 @@ export class PromocionPage implements OnInit {
 
   addPromocion() {
     console.log(this.id_promocion);
-    this.crud.addPromocion(1,this.id_promocion).then( resp => {
+    this.crud.addPromocion(1, this.id_promocion).then(resp => {
       console.log(resp);
       this.getPromocion();
     })
   }
-  
+
   deletePromocion() {
     this.crud.deletePromocion(this.id_promocionE).then(
       resp => {
