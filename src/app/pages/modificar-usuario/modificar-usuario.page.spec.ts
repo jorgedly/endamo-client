@@ -3,9 +3,10 @@ import { IonicModule } from '@ionic/angular';
 
 import { ModificarUsuarioPage } from './modificar-usuario.page';
 
-// describe('ModificarUsuarioPage', () => {
-//   let component: ModificarUsuarioPage;
-//   let fixture: ComponentFixture<ModificarUsuarioPage>;
+/*
+describe('ModificarUsuarioPage', () => {
+  let component: ModificarUsuarioPage;
+  let fixture: ComponentFixture<ModificarUsuarioPage>;
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
@@ -18,6 +19,8 @@ import { ModificarUsuarioPage } from './modificar-usuario.page';
 //     fixture.detectChanges();
 //   }));
 
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+*/

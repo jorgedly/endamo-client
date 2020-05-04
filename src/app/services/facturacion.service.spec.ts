@@ -1,14 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ConexionService } from './conexion.service';
+import { FacturacionService } from './facturacion.service';
 
-/*
-describe('ConexionService', () => {
+describe('FacturacionService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ConexionService = TestBed.get(ConexionService);
+    const service: FacturacionService = TestBed.get(FacturacionService);
     expect(service).toBeTruthy();
   });
 });
-*/

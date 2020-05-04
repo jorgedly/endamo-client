@@ -154,7 +154,7 @@
                 </ion-col>
             </ion-row>
 
-            <form (ngSubmit)="login(fLogin)" #fLogin="ngForm">
+            <form id="loginform" (ngSubmit)="login(fLogin)" #fLogin="ngForm">
                 <ion-row>
                     <ion-col>
                         
@@ -162,7 +162,7 @@
                             
                             <ion-item color="transparent">
                             <ion-label>Email     </ion-label>
-                            <ion-input  name="name" 
+                            <ion-input id="logname"  name="logname" 
                                         type="email"
                                         [(ngModel)] = "loginUser.email"
                                         required></ion-input>
@@ -170,7 +170,7 @@
   
                             <ion-item color="transparent">
                             <ion-label>Password     </ion-label>
-                            <ion-input  name="password"
+                            <ion-input  id="logpass"  name="logpass"
                                         type="password"
                                         [(ngModel)] = "loginUser.password"
                                         required></ion-input>
@@ -182,7 +182,7 @@
                 
                 <ion-row>
                 <ion-col>
-                    <ion-button type="submit"
+                    <ion-button id="iniciarsesion" type="submit"
                                 color="dark"
                                 shape="round">
                         Iniciar Sesion

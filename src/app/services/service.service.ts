@@ -27,9 +27,9 @@ export class ServiceService {
     if (data.email && data.password) {
       if (
         !(data.password.includes('select')) &&
-        !(data.password.includes('script'))
-        //this.rePassword.test(data.password) &&
-        //this.reEmail.test(data.email)
+        !(data.password.includes('script')) &&
+        this.rePassword.test(data.password) &&
+        this.reEmail.test(data.email)
       ) {
         return true;
       }
