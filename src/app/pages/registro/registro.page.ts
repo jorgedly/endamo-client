@@ -116,9 +116,9 @@ export class RegistroPage implements OnInit {
     this.slides.lockSwipes(true);
   }
 
-  async presentToast() {
+  async presentToast(message) {
     const toast = await this.toastController.create({
-      message: '¡Datos Erroneos! Intenta nuevamente.',
+      message,
       color: 'danger',
       position: 'top',
       duration: 2000
@@ -129,49 +129,58 @@ export class RegistroPage implements OnInit {
   /*Métodos para consumir servicios e interactuar*/
   async registrar_usuario(fRegistroUsuario: NgForm) {
     if (fRegistroUsuario.invalid)
-      this.presentToast();
+      this.presentToast('Los datos de registro son invalidos');
     else {
-      const valido = await this.service.registro_cliente(this.registerUser);
+      console.log('a3');
+      if (this.service.verificarRegistroUsuario(this.registerUser)) {
+        const valido = await this.service.registro_cliente(this.registerUser);
+        if (valido)
+          this.route.navigate(['/home-cliente']);
+        else
+          this.presentToast('El nombre de usuario no es unico');
+      } else {
+        this.presentToast('Los datos de registro son invalidos');
+      }
 
-      if (valido)
-        this.route.navigate(['/home-cliente']);
-      else
-        this.presentToast();
     }
   }
 
   async registrar_empresa(fRegistroEmpresa: NgForm) {
     if (fRegistroEmpresa.invalid)
-      this.presentToast();
+      this.presentToast('Los datos de registro son invalidos');
     else {
-      const valido = await this.service.registro_empresa(this.registerEmpresa);
-
-      if (valido)
-        this.route.navigate(['/home-empresa']);
-      else
-        this.presentToast();
+      if (this.service.verificarRegistroEmpresa(this.registerEmpresa)) {
+        const valido = await this.service.registro_empresa(this.registerEmpresa);
+        if (valido)
+          this.route.navigate(['/home-empresa']);
+        else
+          this.presentToast('El nombre de la empresa no es unico');
+      } else {
+        this.presentToast('Los datos de registro son invalidos');
+      }
     }
   }
 
   async login(fLogin: NgForm) {
     if (fLogin.invalid)
-      this.presentToast();
+      this.presentToast('Los datos son invalidos para iniciar sesion');
     else {
-      const valido = await this.service.login(this.loginUser);
-
-      if (valido["auth"]) {
-
-        if (valido["user"]) {
-          this.loginUser.email="";
-          this.loginUser.password="";
-          localStorage.setItem('nombre', valido['nombre']);
-          this.route.navigate(['/home-cliente']);
-        } else
-          this.route.navigate(['/menu2']);
-
+      if (this.service.verificarLogin(this.loginUser)) {
+        const valido = await this.service.login(this.loginUser);
+        if (valido["auth"]) {
+          if (valido["user"]) {
+            this.loginUser.email = "";
+            this.loginUser.password = "";
+            localStorage.setItem('nombre', valido['nombre']);
+            this.route.navigate(['/home-cliente']);
+          } else
+            this.route.navigate(['/menu2']);
+        }
+        else
+          this.presentToast('El usuario o contrasena son incorrectos');
+      } else {
+        this.presentToast('Los datos son invalidos para iniciar sesion');
       }
-      else
-        this.presentToast();
     }
   }
 

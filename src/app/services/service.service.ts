@@ -13,13 +13,62 @@ export class ServiceService {
   correo;
   id;
 
-  constructor(public http: HttpClient,
-    private storageService: StorageService) { }
+  constructor(
+    private http: HttpClient,
+    private storageService: StorageService
+  ) { }
 
-  //agregar metodos de verificacion de datos de registro y login
+  rePassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+  reEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  verificarLogin(data) {
-    return true;
+  //correo,constrasena
+  verificarLogin(data): boolean {
+    console.log(data);
+    if (data.email && data.password) {
+      if (
+        !(data.password.includes('select')) &&
+        !(data.password.includes('script')) &&
+        this.rePassword.test(data.password) &&
+        this.reEmail.test(data.email)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  //nombre,email,username,password,avatar
+  verificarRegistroUsuario(data): boolean {
+    if (data.username && data.email && data.password) {
+      if (
+        !(data.password.includes('select')) &&
+        !(data.password.includes('script')) &&
+        !(data.email.includes('select')) &&
+        !(data.email.includes('script')) &&
+        this.rePassword.test(data.password) &&
+        this.reEmail.test(data.email)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  //username,email,password
+  verificarRegistroEmpresa(data): boolean {
+    if (data.email && data.username && data.password) {
+      if (
+        !(data.password.includes('select')) &&
+        !(data.password.includes('script')) &&
+        !(data.email.includes('select')) &&
+        !(data.email.includes('script')) &&
+        this.rePassword.test(data.password) &&
+        this.reEmail.test(data.email)
+      ) {
+        return true;
+      }
+    }
+    return false;
   }
 
   login(data) {
@@ -46,7 +95,7 @@ export class ServiceService {
 
   registro_cliente(data) {
     return new Promise(resolve => {
-      this.http.post(`${this.API_URL}/register`, data)
+      this.http.post(`${this.API_URL}/usuario/register`, data)
         .subscribe(resp => {
           console.log(resp["success"]);
 
@@ -65,7 +114,7 @@ export class ServiceService {
 
   registro_empresa(data) {
     return new Promise(resolve => {
-      this.http.post(`${this.API_URL}/register`, data)
+      this.http.post(`${this.API_URL}/empresa/register`, data)
         .subscribe(resp => {
           console.log(resp);
 
