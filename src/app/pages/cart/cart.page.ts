@@ -40,6 +40,7 @@ export class CartPage implements OnInit {
 
   ngOnInit() {
     this.getId();
+    
   }
 
   async getId() {
@@ -176,10 +177,11 @@ export class CartPage implements OnInit {
     await alert.present();
   }
 
+  nFactura: any;
   async realizarTransaccion(NIT, nombre) {
     const data = await this.facturaService.crearFactura(new Date().toLocaleString(), this.id_usuario, this.total, NIT, nombre);
     console.log(data);
-
+    this.nFactura = data["creado"];
     if (data["creado"] != 0) {
       console.log('fue creado');
       this.cart.forEach(elemento => {
@@ -199,7 +201,9 @@ export class CartPage implements OnInit {
   }
 
   async realizarADomicilio(idUsuario, pais, dep, casa){
-    const data = await this.facturaService.crearADomicilio(idUsuario, pais, dep, casa);
+    const d1 = await this.facturaService.crearADomicilio(idUsuario, pais, dep, casa);
+    const d2 = await this.facturaService.Entrega(0, idUsuario,  this.nFactura);
   }
+
 
 }

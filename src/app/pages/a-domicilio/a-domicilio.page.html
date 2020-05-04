@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>A Domicilio</ion-title>
+    <ion-title>Mis Pedidos</ion-title>
     <ion-buttons slot="end">
       <ion-buttons slot="start">
         <ion-back-button defaultHref="home-cliente"></ion-back-button>
@@ -10,21 +10,17 @@
 </ion-header>
 
 <ion-content>
- 
-  <ion-item>
-    <ion-label position="floating">País</ion-label>
-    <ion-input type="text" #pais required="true"></ion-input>
-    
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Departamento, Municipio</ion-label>
-    <ion-input  type="text" #depMun required="true"></ion-input>
-
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Direccion de Casa</ion-label>
-    <ion-input  type="text" #dirCasa required="true"></ion-input>
-  </ion-item>
-  <ion-button expand="block" (click)="mandar(pais, depMun, dirCasa)">Envíenmelo!</ion-button>
-
+  <ion-list>
+    <ion-item >
+      <ion-label><strong>No. Entrega</strong></ion-label>
+      <ion-label><strong>Entregado?</strong></ion-label>
+      <ion-label><strong>No. Factura</strong></ion-label>
+    </ion-item>
+    <ion-item  *ngFor="let pedido of misPedidos">
+      <ion-label>{{pedido.idEntrega}}</ion-label>
+      <ion-label *ngIf="pedido.entregado == 0">No</ion-label>
+      <ion-label *ngIf="pedido.entregado == 1">Si</ion-label>
+      <ion-label>{{pedido.factura_id_factura}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

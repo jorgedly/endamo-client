@@ -52,4 +52,23 @@ export class FacturacionService {
     });
   }
 
+  Entrega(entregado, usuario_id_usuario, factura_id_factura){
+    const data = {entregado, usuario_id_usuario, factura_id_factura }
+    return new Promise(resolve => {
+      this.http.post(`${this.API_URL2}/enviar/entrega`, data)
+      .subscribe(resp => {
+        resolve(resp);
+      });
+    });
+  }
+
+  mEnregas(id){
+    return new Promise(resolve => {
+      this.http.get(`${this.API_URL2}/enviar/entrega/${id}`)
+      .subscribe(resp => {
+        resolve(resp);
+      });
+    });
+  }
+
 }
