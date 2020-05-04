@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>A Domicilio</ion-title>
+    <ion-buttons slot="end">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="home-cliente"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <ion-item>
+    <ion-label position="floating">País</ion-label>
+    <ion-input type="text" #pais required="true"></ion-input>
+    
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Departamento, Municipio</ion-label>
+    <ion-input  type="text" #depMun required="true"></ion-input>
+
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Direccion de Casa</ion-label>
+    <ion-input  type="text" #dirCasa required="true"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="mandar(pais, depMun, dirCasa)">Envíenmelo!</ion-button>
+
+</ion-content>

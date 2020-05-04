@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { CartserviceService } from 'src/app/services/cartservice.service';
+import { Router, RouterEvent } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,8 @@ export class CartPage implements OnInit {
 
   constructor(private modalController:ModalController,
     private cartservice:CartserviceService,
-    private toastController:ToastController) { 
+    private toastController:ToastController,
+    private router: Router) { 
       if(this.cartservice.isNotEmpty())this.cart=this.cartservice.getProducts();
     }
 
@@ -53,6 +55,11 @@ export class CartPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+
+  aDomiciolio(){
+    console.log('hola mundo')
+    this.router.navigate([`modificar-usuario`]);
   }
 
 }
