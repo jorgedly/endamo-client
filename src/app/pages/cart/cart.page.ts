@@ -133,6 +133,8 @@ export class CartPage implements OnInit {
     }
 
     this.presentMessage('Se ha realizado la compra de forma exitosa');
+    this.cartservice.flush();
+    this.dismiss();
   }
 
   async realizarDetalleFactura(data,elemento){
