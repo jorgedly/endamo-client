@@ -2,20 +2,18 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { MeProductosPage } from './me-productos.page';
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 // describe('MeProductosPage', () => {
 //   let component: MeProductosPage;
 //   let fixture: ComponentFixture<MeProductosPage>;
-=======
->>>>>>> develop
 /*
 describe('MeProductosPage', () => {
   let component: MeProductosPage;
   let fixture: ComponentFixture<MeProductosPage>;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cambios
+>>>>>>> develop
 =======
 >>>>>>> cambios
 >>>>>>> develop
@@ -32,12 +30,18 @@ describe('MeProductosPage', () => {
 //   }));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> develop
 //   it('should create', () => {
 //     expect(component).toBeTruthy();
 //   });
 // });
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 =======
 >>>>>>> develop
   it('should create', () => {
@@ -45,7 +49,3 @@ describe('MeProductosPage', () => {
   });
 });
 */
-<<<<<<< HEAD
-=======
->>>>>>> cambios
->>>>>>> develop

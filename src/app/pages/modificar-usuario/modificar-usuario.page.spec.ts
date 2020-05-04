@@ -3,19 +3,18 @@ import { IonicModule } from '@ionic/angular';
 
 import { ModificarUsuarioPage } from './modificar-usuario.page';
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 // describe('ModificarUsuarioPage', () => {
 //   let component: ModificarUsuarioPage;
 //   let fixture: ComponentFixture<ModificarUsuarioPage>;
-=======
->>>>>>> develop
 /*
 describe('ModificarUsuarioPage', () => {
   let component: ModificarUsuarioPage;
   let fixture: ComponentFixture<ModificarUsuarioPage>;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cambios
+>>>>>>> develop
 =======
 >>>>>>> cambios
 >>>>>>> develop
@@ -32,11 +31,17 @@ describe('ModificarUsuarioPage', () => {
 //   }));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> develop
 //     expect(component).toBeTruthy();
 //   });
 // });
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 =======
 >>>>>>> develop
   it('should create', () => {
@@ -44,7 +49,3 @@ describe('ModificarUsuarioPage', () => {
   });
 });
 */
-<<<<<<< HEAD
-=======
->>>>>>> cambios
->>>>>>> develop

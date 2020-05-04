@@ -9,17 +9,11 @@ import { of, throwError } from 'rxjs';
 describe('EditEnterprisePage', () => {
   let component: EditEnterprisePage;
   let fixture: ComponentFixture<EditEnterprisePage>;
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
 //       declarations: [ EditEnterprisePage ],
 //       imports: [IonicModule.forRoot()]
 //     }).compileComponents();
-=======
->>>>>>> develop
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
@@ -27,25 +21,14 @@ describe('EditEnterprisePage', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [EmpresaService]
     }).compileComponents();
-<<<<<<< HEAD
-=======
->>>>>>> cambios
->>>>>>> develop
-
     fixture = TestBed.createComponent(EditEnterprisePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 //   it('should create', () => {
 //     expect(component).toBeTruthy();
 //   });
 // });
-=======
->>>>>>> develop
   describe('When readData() is called', () =>  {
     it('all should be fine ', () => {
       component.readData();
@@ -70,7 +53,3 @@ describe('EditEnterprisePage', () => {
   });
   
 });
-<<<<<<< HEAD
-=======
->>>>>>> cambios
->>>>>>> develop

@@ -3,8 +3,11 @@ import { TestBed } from '@angular/core/testing';
 import { ConsumoService } from './consumo.service';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> develop
 // describe('ConsumoService', () => {
 //   beforeEach(() => TestBed.configureTestingModule({}));
 
@@ -13,6 +16,9 @@ import { ConsumoService } from './consumo.service';
 //     expect(service).toBeTruthy();
 //   });
 // });
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 =======
 >>>>>>> develop
 /*
@@ -26,6 +32,10 @@ describe('ConsumoService', () => {
 });
 */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cambios
+>>>>>>> develop
 =======
 >>>>>>> cambios
 >>>>>>> develop

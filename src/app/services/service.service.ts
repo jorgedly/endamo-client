@@ -43,6 +43,7 @@ export class ServiceService {
       return true;
     }
     */
+
   //nombre,email,username,password,avatar
   verificarRegistroUsuario(data): boolean {
     if (data.username && data.email && data.password) {

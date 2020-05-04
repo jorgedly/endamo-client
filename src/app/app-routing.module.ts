@@ -58,7 +58,7 @@ const routes: Routes = [
   {
     path: 'report',
     pathMatch: 'full',
-    loadChildren: () => import('./pages/reportes/reportes.module').then( m => m.ReportesPageModule)
+    loadChildren: () => import('./pages/reportes/reportes.module').then(m => m.ReportesPageModule)
   },
   {
     path: 'promo',
