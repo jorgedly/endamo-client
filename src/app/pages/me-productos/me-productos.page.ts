@@ -36,6 +36,7 @@ export class MeProductosPage implements OnInit {
   getProductos() {
     this.crud.listarProducto().then(productos => {
       this.productos = productos;
+      console.log(this.productos);
     });
   }
 

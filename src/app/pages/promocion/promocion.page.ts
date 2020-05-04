@@ -4,7 +4,6 @@ import { IonSlides, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from 'src/app/services/service.service';
 import { PromocionService } from '../../services/promocion.service';
-
 @Component({
   selector: 'app-promocion',
   templateUrl: './promocion.page.html',
@@ -13,21 +12,33 @@ import { PromocionService } from '../../services/promocion.service';
 export class PromocionPage implements OnInit {
 
   id_empresa: any;
-  promocion: any = [];
+  promociones: any = [];
+  /*promocion = [
+    {
+        "pelicula": "Batman v. Superman",
+        "director": "Zack Snider",
+        "anio": "2016"
+    },
+    {
+        "pelicula": "La verdad duele",
+        "director": "Will Smith",
+        "anio": "2015"
+    },
+    {
+        "pelicula": "Una historia real",
+        "director": "Desconocido",
+        "anio": "2014"
+    }];*/
 
   constructor(private crud: PromocionService,
     public toastController: ToastController,
     private router: Router) {
-    this.getPromocion();
   }
 
   ngOnInit() {
+    this.getPromocion();
   }
-  /*
-    ionViewWillEnter() {
-      this.getProductos();
-    }
-  */
+  
   async presentToast(mensaje) {
     const toast = await this.toastController.create({
       message: mensaje,
@@ -39,13 +50,15 @@ export class PromocionPage implements OnInit {
   }
 
   getPromocion(): any {
-    this.crud.getPromocion().subscribe(promociones => {
-      this.promocion = promociones;
+    this.crud.getPromocion().then(promo => {
+      this.promociones = promo;
+      console.log(this.promociones);
+      console.log(promo);
     },
-    err => {
-      console.log(err);
-      return false;
-    });
+      err => {
+        console.log(err);
+        return false;
+      });
   }
   /*
   getProductos() {
@@ -53,6 +66,7 @@ export class PromocionPage implements OnInit {
       this.productos = productos;
     });
   }
+  
 /*
   deleteProducto(id: string) {
 
@@ -69,4 +83,15 @@ export class PromocionPage implements OnInit {
     this.router.navigate(['/create-product']);
   }
   */
+  /*
+  addPromocion(id_promocion: number, ActivoNoActivo: number, id_empresa: number, id_producto: number) {
+      this.crud.agregarPromocion(id_promocion, ActivoNoActivo, id_empresa, id_producto).subscribe()
+
+      }
+  }
+
+  deletePromocion() {
+
+  }
+*/
 }

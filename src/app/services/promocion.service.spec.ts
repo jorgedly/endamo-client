@@ -14,15 +14,15 @@ describe('PromocionService', () => {
     httpMock = injector.get(HttpTestingController);
   });
   
-  it('should return the promocion', () => {
+  it('should return the all promocion', () => {
     const service: PromocionService = TestBed.get(PromocionService);
     let exampleUser = {};
     let email = localStorage.getItem('correo')
-    service.getPromocion().subscribe(res => {
+    service.getPromocion().then(res => {
       res;
       console.log(res);
     });
-    const req = httpMock.expectOne(`https://endamo-api.herokuapp.com/empresa/edit/${email}`);
+    const req = httpMock.expectOne(`https://endamo-api.herokuapp.com/promocion`);
     expect(req.request.method).toBe('GET');
     req.flush(exampleUser);
   });  
