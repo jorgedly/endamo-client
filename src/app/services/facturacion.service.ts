@@ -8,7 +8,6 @@ export class FacturacionService {
 
 
   private API_URL: string = 'https://endamo-api.herokuapp.com'
-  private API_URL2: string = 'http://localhost:3000'
 
   constructor(public http: HttpClient) { }
 
@@ -55,7 +54,7 @@ export class FacturacionService {
   Entrega(entregado, usuario_id_usuario, factura_id_factura){
     const data = {entregado, usuario_id_usuario, factura_id_factura }
     return new Promise(resolve => {
-      this.http.post(`${this.API_URL2}/enviar/entrega`, data)
+      this.http.post(`${this.API_URL}/enviar/entrega`, data)
       .subscribe(resp => {
         resolve(resp);
       });
@@ -64,7 +63,7 @@ export class FacturacionService {
 
   mEnregas(id){
     return new Promise(resolve => {
-      this.http.get(`${this.API_URL2}/enviar/entrega/${id}`)
+      this.http.get(`${this.API_URL}/enviar/entrega/${id}`)
       .subscribe(resp => {
         resolve(resp);
       });

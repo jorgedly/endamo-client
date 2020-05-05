@@ -7,8 +7,7 @@ import { StorageService } from './storage.service';
 })
 export class ServiceService {
 
-  private API_URL: string = 'https://endamo-api.herokuapp.com'
-  private API_URL2: string = 'http://localhost:3000'
+  private API_URL: string = 'https://endamo-api.herokuapp.com';
 
   correo;
   id;

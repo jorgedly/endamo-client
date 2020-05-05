@@ -186,7 +186,6 @@ export class CartPage implements OnInit {
       console.log('fue creado');
       this.cart.forEach(elemento => {
         this.realizarDetalleFactura(data, elemento);
-       
       });
     }
 
