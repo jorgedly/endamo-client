@@ -25,13 +25,12 @@ export class HomeClientePage implements OnInit {
     subHeader: 'Seleccionar filtro',
     message: 'para filtrar los productos'
   };
-
-  constructor(
+   constructor(
     private conexion: ConexionService,
     private modalController: ModalController,
     private router:Router
   ) { }
-
+  
   ngOnInit() {
     this.conexion.obtenerProductos();
     this.conexion.productos$.subscribe((productos: Producto[]) => {

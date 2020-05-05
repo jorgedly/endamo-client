@@ -22,6 +22,11 @@
             <p>{{producto.descripcion}}</p>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-col>
+            <p>{{resultado}} </p>
+          </ion-col>
+        </ion-row>
       </ion-grid>
 
       <ion-grid>
@@ -30,7 +35,9 @@
             <ion-input type="number" [(ngModel)]="cantidad" [(max)]="producto.cantidad" min="0"></ion-input>
           </ion-col>
           <ion-col size-xs="5">
-            <ion-button (click)="addToCart()" color="success"><ion-icon name="add-circle"></ion-icon></ion-button>
+            <ion-button (click)="addToCart()" color="success">
+              <ion-icon name="add-circle"></ion-icon>
+            </ion-button>
           </ion-col>
           <ion-col size-xs="5">
             <ion-button (click)="dismiss()" color="danger">Cancelar</ion-button>

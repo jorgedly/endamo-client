@@ -31,11 +31,11 @@ export class PromocionService {
     return promise;
   };
 
-  addPromocion = (ActivoNoActivo: number, id_producto: number) => {
+  addPromocion = (ActivoNoActivo: number, id_producto: number, descripcion: Text) => {
     let promise = new Promise(resolve => {
       this.getId().then(idEmpresa => {
         let id_empresa = idEmpresa;
-        const data = { ActivoNoActivo, id_empresa, id_producto }
+        const data = { ActivoNoActivo, id_empresa, id_producto, descripcion }
         console.log(data);
         this.addPostPromocion(data).then(resp => {
           console.log(resp);
@@ -69,6 +69,31 @@ export class PromocionService {
   deletePostPromocion = (data) => {
     return new Promise(resolve => {
       this.http.delete(`${this.url}/eliminarPromocion/${data}`)
+        .subscribe(resp => {
+          console.log(resp);
+          resolve(resp);
+        });
+    });
+  }
+
+  getPromocion2 = () => {
+    let promise = new Promise(resolve => {
+      this.getId().then(idEmpresa => {
+        let id = idEmpresa;
+        console.log(id);
+        const data = { id }
+        this.getPromo(id).then(resp => {
+          console.log(resp);
+          resolve(resp);
+        })
+      })
+    });
+    return promise;
+  }
+
+  getPromo = (data) => {
+    return new Promise(resolve => {
+      this.http.get(`${this.url}/promocion/${data}`)
         .subscribe(resp => {
           console.log(resp);
           resolve(resp);

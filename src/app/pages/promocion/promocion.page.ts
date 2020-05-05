@@ -15,6 +15,7 @@ export class PromocionPage implements OnInit {
   id_empresa: any;
   id_promocion: any;
   id_promocionE: any;
+  descripcion: any;
   promociones: any = [];
 
   constructor(private crud: PromocionService,
@@ -37,7 +38,7 @@ export class PromocionPage implements OnInit {
   }
 
   getPromocion(): any {
-    this.crud.getPromocion().then(promo => {
+    this.crud.getPromocion2().then(promo => {
       this.promociones = promo;
       console.log(this.promociones);
       console.log(promo);
@@ -49,8 +50,8 @@ export class PromocionPage implements OnInit {
   }
 
   addPromocion() {
-    console.log(this.id_promocion);
-    this.crud.addPromocion(1, this.id_promocion).then(resp => {
+    console.log(this.id_promocion, this.descripcion);
+    this.crud.addPromocion(1, this.id_promocion,this.descripcion).then(resp => {
       console.log(resp);
       this.getPromocion();
     })

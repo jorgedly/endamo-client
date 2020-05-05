@@ -1,12 +1,43 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, getTestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { CartserviceService } from 'src/app/services/cartservice.service';
 
-import { CartserviceService } from './cartservice.service';
+describe('Servicio agregar Carrito', () => {
 
-// describe('CartserviceService', () => {
-//   beforeEach(() => TestBed.configureTestingModule({}));
+    let injector: TestBed;
+    let service: CartserviceService;
 
-//   it('should be created', () => {
-//     const service: CartserviceService = TestBed.get(CartserviceService);
-//     expect(service).toBeTruthy();
-//   });
-// });
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [HttpClientTestingModule],
+            providers: [CartserviceService]
+        });
+        injector = getTestBed();
+        service = injector.get(CartserviceService);
+    });
+
+    it('validar_carrito', async function () {
+        expect(service.isNotEmpty()).toBe(true);
+    });
+
+    it('validar_servicioADomicilio', async function () {
+        expect(service.verificarRealizarADomicilio("Guatemala", "Guatemala", "Guatemala", "12 usac")).toBe(true);
+    });
+
+    it('validar_RealizacionDeTransacciones', async function () {
+        expect(service.llenarRealizarTransaccion("7174128", "Carlos XD")).toBe(true);
+    });
+
+    it('validar_Productos', async function () {
+        const data = {
+            producto: 1,
+            cantidad: 1
+        };
+        expect(service.addToCart(data)).toBe(9);
+    });
+
+    it('validar_OpcionSeleccionadoFiltrado', async function () {
+        expect(service.search("precio")).toBe("precio");
+    });
+});
+

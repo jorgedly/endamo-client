@@ -1,5 +1,6 @@
 import { AppPage } from '../page-objects/app.po';
-import { browser } from 'protractor';
+import { browser, ExpectedConditions } from 'protractor';
+import { protractor } from 'protractor/built/ptor';
 
 describe('new App', () => {
   let page: AppPage;
@@ -26,6 +27,7 @@ describe('new App', () => {
   });
 
   it('should go to sign in', () => {
+    browser.wait(protractor.ExpectedConditions.elementToBeClickable(page.getSigninButton()));
     page.getSigninButton().click().then(() => {
       expect(browser.getCurrentUrl()).toBe('http://localhost:8100/registro/2');
     });

@@ -18,6 +18,10 @@
         <ion-label color="primary">Sku: </ion-label>
         <ion-input type="number" required="true" #price [(ngModel)]="id_promocion" placeholder="ejemplo: 1000"></ion-input>
     </ion-item>
+    <ion-item>
+        <ion-label color="primary">Descripcion: </ion-label>
+        <ion-input type="text" required="true" #price [(ngModel)]="descripcion" placeholder="ejemplo: se dará audifonos"></ion-input>
+    </ion-item>
     <section>
         <div class="example-button-row">
             <button mat-raised-button class="primary" (click)="addPromocion()">agregar</button>
@@ -43,7 +47,7 @@
         <ion-label>
           <h2>Producto: {{promo.id_producto}}</h2>
           <h3>Empresa: {{promo.id_empresa}}</h3>
-          <h3>Descripcion: {{promo.id_descripcion}}</h3>
+          <h3>Descripcion: {{promo.descripcion}}</h3>
         </ion-label>
       </ion-item>
     </ion-item-sliding>

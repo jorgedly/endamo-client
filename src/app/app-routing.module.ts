@@ -36,14 +36,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   },
   {
-    path: 'modificar-usuario',
-    loadChildren: () => import('./pages/modificar-usuario/modificar-usuario.module').then(m => m.ModificarUsuarioPageModule)
-  },
-  {
-    path: 'menu2',
-    loadChildren: () => import('./pages/menu/menu.module').then(m => m.MenuPageModule)
-  },
-  {
     path: 'producto/editar/:id',
     loadChildren: () => import('./pages/create-product/create-product.module').then(m => m.CreateProductPageModule)
   },
@@ -52,19 +44,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartPageModule)
   },
   {
-    path: 'checkout',
-    loadChildren: () => import('./pages/checkout/checkout.module').then(m => m.CheckoutPageModule)
-  },
-  {
-    path: 'report',
-    pathMatch: 'full',
-    loadChildren: () => import('./pages/reportes/reportes.module').then(m => m.ReportesPageModule)
-  },
-  {
-    path: 'promo',
-    pathMatch: 'full',
-    loadChildren: () => import('./pages/promocion/promocion.module').then(m => m.PromocionPageModule)
+    path: 'a-domicilio',
+    loadChildren: () => import('./pages/a-domicilio/a-domicilio.module').then( m => m.ADomicilioPageModule)
   }
+
+
 ];
 
 @NgModule({
@@ -73,5 +57,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-
 export class AppRoutingModule { }

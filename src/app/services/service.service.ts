@@ -7,9 +7,7 @@ import { StorageService } from './storage.service';
 })
 export class ServiceService {
 
-  listProduct: any;
-  private API_URL: string = 'https://endamo-api.herokuapp.com'
-  private API_URL2: string = 'http://localhost:3000'
+  private API_URL: string = 'https://endamo-api.herokuapp.com';
 
   correo;
   id;
@@ -28,9 +26,9 @@ export class ServiceService {
     if (data.email && data.password) {
       if (
         !(data.password.includes('select')) &&
-        !(data.password.includes('script'))
-        //this.rePassword.test(data.password) &&
-        //this.reEmail.test(data.email)
+        !(data.password.includes('script')) &&
+        this.rePassword.test(data.password) &&
+        this.reEmail.test(data.email)
       ) {
         return true;
       }
@@ -79,13 +77,10 @@ export class ServiceService {
   }
 
   login(data) {
-
     return new Promise(resolve => {
       this.http.post(`${this.API_URL}/login`, data)
         .subscribe(resp => {
-
           console.log(resp);
-
           if (resp["auth"]) {
             //si los datos son correctos, se guarda la informacion en el local storage
             localStorage.setItem('correo', JSON.stringify(data.email))
@@ -144,7 +139,7 @@ export class ServiceService {
     let promise = new Promise(resolve => {
       this.http.get(`${this.API_URL}/getidempresa/${this.storageService.getCorreo()}`)
         .subscribe(resp => {
-          resolve(resp["idEmpresa"]);
+          resolve(resp["id_empresa"]);
         });
     });
     return promise;
@@ -173,23 +168,6 @@ export class ServiceService {
       })
     });
     return promise;
-  }
-
-  editProduct(arg0: any): any {
-    throw new Error("Method not implemented.");
-  }
-
-  existProduct(): any {
-    this.listProduct.product = this.http.get(`${this.API_URL}/producto/listado`);
-    console.log(this.listProduct);
-  }
-
-  filterProduct(arg0: any): any {
-
-  }
-
-  deleteProduct(arg0: any): any {
-
   }
 
   obtenerProductos() {

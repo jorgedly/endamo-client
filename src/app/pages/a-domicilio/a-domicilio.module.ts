@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CheckoutPageRoutingModule } from './checkout-routing.module';
+import { ADomicilioPageRoutingModule } from './a-domicilio-routing.module';
 
-import { CheckoutPage } from './checkout.page';
+import { ADomicilioPage } from './a-domicilio.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CheckoutPageRoutingModule
+    ADomicilioPageRoutingModule
   ],
-  declarations: [CheckoutPage]
+  declarations: [ADomicilioPage]
 })
-export class CheckoutPageModule {}
+export class ADomicilioPageModule {}

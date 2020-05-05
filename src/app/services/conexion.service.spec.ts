@@ -2,12 +2,6 @@ import { TestBed } from '@angular/core/testing';
 
 import { ConexionService } from './conexion.service';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> develop
 // describe('ConexionService', () => {
 //   beforeEach(() => TestBed.configureTestingModule({}));
 
@@ -16,11 +10,6 @@ import { ConexionService } from './conexion.service';
 //     expect(service).toBeTruthy();
 //   });
 // });
-=======
-<<<<<<< HEAD
->>>>>>> develop
-=======
->>>>>>> develop
 /*
 describe('ConexionService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
@@ -31,11 +20,3 @@ describe('ConexionService', () => {
   });
 });
 */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> cambios
->>>>>>> develop
-=======
->>>>>>> cambios
->>>>>>> develop

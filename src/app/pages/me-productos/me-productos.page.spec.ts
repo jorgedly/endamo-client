@@ -2,21 +2,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { MeProductosPage } from './me-productos.page';
-// describe('MeProductosPage', () => {
-//   let component: MeProductosPage;
-//   let fixture: ComponentFixture<MeProductosPage>;
 /*
 describe('MeProductosPage', () => {
   let component: MeProductosPage;
   let fixture: ComponentFixture<MeProductosPage>;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> cambios
 >>>>>>> develop
 =======
 >>>>>>> cambios
 >>>>>>> develop
+=======
+>>>>>>> origin/develop
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
@@ -29,6 +29,7 @@ describe('MeProductosPage', () => {
 //     fixture.detectChanges();
 //   }));
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -44,6 +45,8 @@ describe('MeProductosPage', () => {
 >>>>>>> develop
 =======
 >>>>>>> develop
+=======
+>>>>>>> origin/develop
   it('should create', () => {
     expect(component).toBeTruthy();
   });

@@ -9,11 +9,6 @@ import { of, throwError } from 'rxjs';
 describe('EditEnterprisePage', () => {
   let component: EditEnterprisePage;
   let fixture: ComponentFixture<EditEnterprisePage>;
-//   beforeEach(async(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [ EditEnterprisePage ],
-//       imports: [IonicModule.forRoot()]
-//     }).compileComponents();
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
@@ -25,10 +20,6 @@ describe('EditEnterprisePage', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
   describe('When readData() is called', () =>  {
     it('all should be fine ', () => {
       component.readData();

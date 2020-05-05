@@ -3,21 +3,21 @@ import { IonicModule } from '@ionic/angular';
 
 import { ModificarUsuarioPage } from './modificar-usuario.page';
 
-// describe('ModificarUsuarioPage', () => {
-//   let component: ModificarUsuarioPage;
-//   let fixture: ComponentFixture<ModificarUsuarioPage>;
 /*
 describe('ModificarUsuarioPage', () => {
   let component: ModificarUsuarioPage;
   let fixture: ComponentFixture<ModificarUsuarioPage>;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> cambios
 >>>>>>> develop
 =======
 >>>>>>> cambios
 >>>>>>> develop
+=======
+>>>>>>> origin/develop
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
@@ -32,6 +32,7 @@ describe('ModificarUsuarioPage', () => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -44,6 +45,8 @@ describe('ModificarUsuarioPage', () => {
 >>>>>>> develop
 =======
 >>>>>>> develop
+=======
+>>>>>>> origin/develop
   it('should create', () => {
     expect(component).toBeTruthy();
   });
