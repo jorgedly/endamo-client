@@ -91,6 +91,7 @@ export class CartPage implements OnInit {
     this.router.navigate([`a-domicilio`]);
 
   }
+
   comprar() {
     this.presentAlertConfirm();
   }
@@ -103,7 +104,7 @@ export class CartPage implements OnInit {
         {
           name: 'NIT',
           type: 'text',
-          placeholder: 'Consumidor Final'
+          placeholder: 'NIT o Consumidor Final'
         },
         {
           name: 'Nombre',
@@ -172,7 +173,6 @@ export class CartPage implements OnInit {
         }
       ]
     });
-
     await alert.present();
   }
 

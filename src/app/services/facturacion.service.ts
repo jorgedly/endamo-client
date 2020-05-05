@@ -15,7 +15,7 @@ export class FacturacionService {
   getIdUser(email){
     const data = { email };
     return new Promise(resolve => {
-      this.http.post(`${this.API_URL2}/getId`, data)
+      this.http.post(`${this.API_URL}/getId`, data)
         .subscribe(resp => {
           resolve(resp);
         });
@@ -25,7 +25,7 @@ export class FacturacionService {
   crearFactura(fecha,id_usuario,total, nit, nombre){
     const data = { fecha, id_usuario, total, nit, nombre };
     return new Promise(resolve => {
-      this.http.post(`${this.API_URL2}/crearFactura`, data)
+      this.http.post(`${this.API_URL}/crearFactura`, data)
         .subscribe(resp => {
           resolve(resp);
         });
@@ -35,7 +35,7 @@ export class FacturacionService {
   crearDetalleFactura(id_factura, id_producto, cantidad){
     const data = { id_factura, id_producto, cantidad };
     return new Promise(resolve => {
-      this.http.post(`${this.API_URL2}/crearDetalleFactura`, data)
+      this.http.post(`${this.API_URL}/crearDetalleFactura`, data)
         .subscribe(resp => {
           resolve(resp);
         });
@@ -45,7 +45,7 @@ export class FacturacionService {
   crearADomicilio(usuario_id_usuario, avenida, zona, numero_casa){
     const data = { avenida, zona, numero_casa, usuario_id_usuario }
     return new Promise(resolve => {
-      this.http.post(`${this.API_URL2}/enviar/domiciliio`, data)
+      this.http.post(`${this.API_URL}/enviar/domiciliio`, data)
       .subscribe(resp => {
         resolve(resp);
       });
